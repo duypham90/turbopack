@@ -1,11 +1,5 @@
 import { Product } from '#/app/api/products/product'
 import { ProductBestSeller } from '#/ui/product-best-seller'
-import { ProductEstimatedArrival } from '#/ui/product-estimated-arrival'
-import { ProductLowStockWarning } from '#/ui/product-low-stock-warning'
-import { ProductPrice } from '#/ui/product-price'
-import { ProductRating } from '#/ui/product-rating'
-import { ProductUsedPrice } from '#/ui/product-used-price'
-import { dinero, type DineroSnapshot } from 'dinero.js'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -16,7 +10,6 @@ export const ProductCard = ({
   product: Product
   href: string
 }) => {
-  const price = dinero(product.price as DineroSnapshot<number>)
 
   return (
     <Link href={href} className="group block">
@@ -42,13 +35,13 @@ export const ProductCard = ({
           {product.name}
         </div>
 
-        {product.rating ? <ProductRating rating={product.rating} /> : null}
+        {/* {product.rating ? <ProductRating rating={product.rating} /> : null} */}
 
-        <ProductPrice price={price} discount={product.discount} />
+        {product.discount?.percent}
 
         {/* <ProductSplitPayments price={price} /> */}
 
-        {product.usedPrice ? (
+        {/* {product.usedPrice ? (
           <ProductUsedPrice usedPrice={product.usedPrice} />
         ) : null}
 
@@ -56,7 +49,7 @@ export const ProductCard = ({
 
         {product.stock <= 1 ? (
           <ProductLowStockWarning stock={product.stock} />
-        ) : null}
+        ) : null} */}
       </div>
     </Link>
   )

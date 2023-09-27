@@ -21,11 +21,11 @@ export async function RecommendedProducts({
         </div>
       </div>
       <div className="grid grid-cols-4 gap-6">
-        {products.map((product) => (
+        {/* {products.map((product) => (
           <div key={product.id} className="col-span-4 lg:col-span-1">
             <ProductCard product={product} href={`${path}/${product.id}`} />
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   )
